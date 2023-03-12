@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "./";
+import emp from "./emp";
 
 const dept = sequelize.define('dept', {
     deptNo: {
@@ -19,5 +20,8 @@ const dept = sequelize.define('dept', {
     freezeTableName: true,
     timestamps: false
 })
+
+dept.hasMany(emp, { foreignKey: 'deptNo' });
+emp.belongsTo(dept, { foreignKey: 'deptNo' });
 
 export default dept;
