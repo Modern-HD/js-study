@@ -7,7 +7,6 @@ function* storeGenerator(initialState, reducer, subscribe) {
     const state = initialState;
     while (true) {
         const action = yield;
-        console.log(action);
         const newState = reducer(state, action);
         subscribe && subscribe(newState, {...action});
     }
@@ -17,18 +16,17 @@ function* storeGenerator(initialState, reducer, subscribe) {
 function createStore(initialState, reducer, subscribe) {
     const store = storeGenerator(initialState, reducer, subscribe);
     store.next();
-    const storeObj = {
+    return {
         getState: () => {
             return {...initialState};
         },
         dispatch: (action) => {
             store.next(action);
         }
-    }
-    return storeObj;
+    };
 }
 
-/** @type {VanillaStateManager.Reducer<T, K>} */
+/** @type {VanillaStateManager.Reducer<{ value: number }, { type: "INCREASE" | "DECREASE" }>} */
 function countReducer(state, action) {
     switch(action.type) {
         case "INCREASE":
