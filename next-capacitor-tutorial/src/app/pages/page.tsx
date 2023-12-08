@@ -2,9 +2,12 @@
 
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { Capacitor } from '@capacitor/core';
+import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Pages() {
+    const [imgPath, setImgPath] = useState<string>('');
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <p>다른 페이지</p>
@@ -26,6 +29,7 @@ export default function Pages() {
             >
                 현재 플랫폼
             </button>
+            {imgPath && <Image loader={() => imgPath} src={imgPath} alt={''} width={200} height={200} />}
             <button
                 onClick={async () => {
                     try {
@@ -34,8 +38,7 @@ export default function Pages() {
                             allowEditing: true,
                             resultType: CameraResultType.Uri,
                         });
-                        alert(image.path);
-                        alert(image.webPath);
+                        image.webPath && setImgPath(image.webPath);
                     } catch (error) {
                         alert(error);
                     }
