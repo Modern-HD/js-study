@@ -4,11 +4,14 @@ PODS:
   - CapacitorCamera (5.0.7):
     - Capacitor
   - CapacitorCordova (5.5.1)
+  - CapacitorPluginSafeArea (2.0.6):
+    - Capacitor
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorCamera (from `../../node_modules/@capacitor/camera`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - CapacitorPluginSafeArea (from `../../node_modules/capacitor-plugin-safe-area`)
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -17,12 +20,15 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/camera"
   CapacitorCordova:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorPluginSafeArea:
+    :path: "../../node_modules/capacitor-plugin-safe-area"
 
 SPEC CHECKSUMS:
   Capacitor: 9da0a2415e3b6098511f8b5ffdb578d91ee79f8f
   CapacitorCamera: 084b0b228bba7d00587910337b1c89e93b1d32ab
   CapacitorCordova: e128cc7688c070ca0bfa439898a5f609da8dbcfe
+  CapacitorPluginSafeArea: d55e4d4e70c98f611240f11dd80561438d0d70cb
 
-PODFILE CHECKSUM: 39250892ef0344d4847cd4c683520cd02a8223b6
+PODFILE CHECKSUM: 10d748bdf0c4fc123620b655b4e3be4b490ee879
 
 COCOAPODS: 1.11.3

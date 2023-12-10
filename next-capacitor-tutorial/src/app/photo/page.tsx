@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function Pages() {
+export default function Photo() {
     const [imgPath, setImgPath] = useState<string>('');
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -29,7 +29,12 @@ export default function Pages() {
             >
                 현재 플랫폼
             </button>
-            {imgPath && <Image loader={() => imgPath} src={imgPath} alt={''} width={200} height={200} />}
+            {imgPath && (
+                <div className="text-center">
+                    <Image loader={() => imgPath} src={imgPath} alt={''} width={200} height={200} />
+                    <button>전송</button>
+                </div>
+            )}
             <button
                 onClick={async () => {
                     try {
