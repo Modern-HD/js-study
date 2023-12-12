@@ -15,7 +15,7 @@ const safetyAreaSelector = selector({
     set: ({ set }, newValue) => {
         const insets = newValue as SafeAreaInsets['insets'];
         set(safetyTopState, insets.top);
-        set(safetyRightState, insets.left);
+        set(safetyLeftState, insets.left);
         set(safetyRightState, insets.right);
         set(safetyBottomState, insets.bottom);
     },

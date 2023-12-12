@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Nav from '@/components/nav/Nav';
 import RecoilProvider from '@/components/provider/RecoilProvider';
+import SafetyAreaProvider from '@/components/provider/SafetyAreaProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,12 +18,13 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <RecoilProvider>
-            <html lang="en">
-                <body className={inter.className}>
-                    <Nav />
-                    {children}
-                </body>
-            </html>
+            <SafetyAreaProvider>
+                <html lang="ko">
+                    <body className={inter.className}>
+                        <div className="flex flex-col min-h-screen">{children}</div>
+                    </body>
+                </html>
+            </SafetyAreaProvider>
         </RecoilProvider>
     );
 }
