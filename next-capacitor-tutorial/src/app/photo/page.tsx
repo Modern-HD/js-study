@@ -12,7 +12,7 @@ export default function Photo() {
     return (
         <>
             <PageMotionWrapper className="flex-1 flex flex-col items-center justify-between p-24">
-                <p>다른 페이지</p>
+                <p>사진 페이지</p>
                 <button
                     onClick={() => {
                         if (Capacitor.isNativePlatform()) {
